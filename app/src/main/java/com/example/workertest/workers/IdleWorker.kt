@@ -1,6 +1,8 @@
 package com.example.workertest.workers
 
 import android.content.Context
+import androidx.hilt.Assisted
+import androidx.hilt.work.WorkerInject
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import kotlinx.coroutines.async
@@ -8,9 +10,9 @@ import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 
-class IdleWorker(
-        context: Context,
-        parameters: WorkerParameters
+class IdleWorker @WorkerInject constructor(
+    @Assisted context: Context,
+    @Assisted parameters: WorkerParameters
 ) : CoroutineWorker(context, parameters) {
 
     override suspend fun doWork(): Result = coroutineScope {
