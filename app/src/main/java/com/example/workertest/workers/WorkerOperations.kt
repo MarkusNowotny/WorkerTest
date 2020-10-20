@@ -12,8 +12,6 @@ class WorkerOperations private constructor(val continuation: WorkContinuation) {
 
     class Builder(private val context: Context) {
 
-        var run: Int = 1
-
         private val worker: OneTimeWorkRequest
             get() = OneTimeWorkRequestBuilder<IdleWorker>().build()
 

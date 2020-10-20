@@ -12,11 +12,6 @@ class BroadcastWorker(
 ): CoroutineWorker(context, parameters) {
 
     override suspend fun doWork(): Result = coroutineScope {
-        context.sendBroadcast(Intent().apply {
-            action = "WorkerTestSuccessful"
-            //putExtra("run", inputData.getInt("run", 1))
-        })
-
         Result.success()
     }
 
