@@ -22,7 +22,6 @@ class WorkerTestApp : Application(), Configuration.Provider {
 
     override fun getWorkManagerConfiguration() =
         Configuration.Builder()
-            .setMinimumLoggingLevel(Log.VERBOSE)
             .setWorkerFactory(workerFactory)
             .build()
 
