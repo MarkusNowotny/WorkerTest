@@ -34,8 +34,6 @@ class WorkerOperations private constructor(val continuation: WorkContinuation) {
             // 50 times parallel 'requests'
             continuation = continuation.then((0 until 50).map { worker })
 
-            continuation = continuation.then(OneTimeWorkRequestBuilder<BroadcastWorker>().build())
-
             return WorkerOperations(continuation)
         }
 
